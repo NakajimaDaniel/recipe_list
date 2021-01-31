@@ -1,5 +1,6 @@
 import './App.css';
 import {useState} from 'react';
+import React from 'react'
 
 import { Button } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
@@ -16,7 +17,8 @@ function App() {
 
   const [count,setCount] = useState(0);
 
-  const API_KEY = '65a19a69d8774ac59ba73e8a628a3c49';
+  const API_KEY = process.env.REACT_APP_SPOONACULAR_API_KEY;
+  
   const BASE = 'https://api.spoonacular.com/recipes/findByIngredients?';
   const TOTAL = 'https://api.spoonacular.com/recipes/findByIngredients?apiKey=65a19a69d8774ac59ba73e8a628a3c49&ingredients=apples,+flour,+sugar&number=2';
   const itens = 'apples,flour, sugar';
