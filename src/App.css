@@ -102,16 +102,21 @@
 }
 
 .recipe-item{
-  width: 100%;
+  width: 90%;
   padding-bottom: 2%;
- 
+  background-color: white;
+  margin-right: 5%;
+  margin-left: 5%;
+  margin-bottom: 2%;
+  margin-top: 2%;
+  border-radius: 20px;
 }
 
 .recipe-item-title{
   font-size: 17px;
   padding-left: 30px;
-  padding-bottom: 10px;
-  padding-top: 10px;
+  padding-bottom: 2%;
+  padding-top: 2%;
   width: 100%;
 }
 
@@ -142,6 +147,7 @@
 
 .recipe-item-content-missed-ingredients{
   width: 33%;
+  padding-right: 2%;
 }
 
 .recipe-item-content-missed-ingredients p{
@@ -155,7 +161,7 @@
 .recipe-divider{
   width: 80%;
   margin: 0 auto;
-  padding-top: 5%;
+  padding-top: 1%;
 }
 
 .recipe-divider hr{
@@ -173,6 +179,12 @@
   }
   .recipe-item-content-image{
     width: 100%;
+  }
+
+  .recipe-item-title{
+    width: 80%;
+    padding-top: 5%;
+    padding-bottom: 5%;
   }
 
   .recipe-item-content-used-ingredients{
@@ -201,11 +213,44 @@
   .recipe-item-content-missed-ingredients li{
     padding-bottom: 2%;
     padding-left: 5%;
+    width: 80%;
+  }
+
+  .used-ingredients-list li{
+    list-style-type:none
+  }
+
+  .missed-ingredients-list li{
+    list-style-type:none
   }
 
 }
 
-@media screen and (max-width:400px){
+.menu-mobile{
+  height: 5%;
+  background-color: #f5f5f7;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.menu-mobile-title{
+  color: #303030;
+  text-align: center;
+  padding-left: 15%;
+}
+
+.menu-mobile-button{
+
+}
+
+@media screen and (max-width:450px){
+  .menu-wrap{
+    width: 0;
+  }
+}
+
+@media screen and (max-height:740px){
   .menu-wrap{
     width: 0;
   }

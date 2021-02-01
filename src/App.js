@@ -1,5 +1,5 @@
 import './App.css';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import React from 'react'
 
 import { Button } from '@material-ui/core';
@@ -8,12 +8,17 @@ import IconButton from '@material-ui/core/IconButton';
 import AddIcon from '@material-ui/icons/Add';
 import ClearIcon from '@material-ui/icons/Clear';
 import SearchIcon from '@material-ui/icons/Search';
+import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 
 function App() {
 
   const [ingredientsList, setIngredientsList] = useState([]);
   const [recipeList, setRecipeList] = useState();
   const [ingredientsAdd, setIngredientAdd] = useState();
+  const [dimensions, SetDimensions] = useState({
+    width: window.innerWidth,
+    height:window.innerHeight
+  })
 
   const [count,setCount] = useState(0);
 
@@ -31,6 +36,7 @@ function App() {
 
   const searchBoxStyle = {
     width:'70%',
+    marginLeft:'5%'
   } 
 
   const addButtonStyle={
@@ -81,6 +87,18 @@ function App() {
     }
   }
 
+
+  useEffect(() => {
+    function handleResize() {
+      SetDimensions({
+        height: window.innerHeight,
+        width: window.innerWidth
+      })}
+      window.addEventListener('resize', handleResize)
+      return _ => {
+        window.removeEventListener('resize', handleResize)}
+})
+
   return (
 
     <div className="App">
@@ -109,9 +127,19 @@ function App() {
         </div>
         
       </div>
-
+      
       <div className="recipes-list-wrap">
-        
+
+      {dimensions.width <= 450? 
+      <div className="menu-mobile">
+        <div className="menu-mobile-button">
+          dd
+        </div>
+        <div className="menu-mobile-title">
+          Recipe List
+        </div>
+      </div>: false}
+
         {recipeList && recipeList.map((recipeList)=>(
          <div className="recipe-item">
            <div className="recipe-item-title">
