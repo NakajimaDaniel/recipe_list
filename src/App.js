@@ -15,6 +15,7 @@ function App() {
   const [ingredientsList, setIngredientsList] = useState([]);
   const [recipeList, setRecipeList] = useState();
   const [ingredientsAdd, setIngredientAdd] = useState();
+  const [mobileDrawer, setMobileDrawer] = useState(false);
   const [dimensions, SetDimensions] = useState({
     width: window.innerWidth,
     height:window.innerHeight
@@ -99,46 +100,65 @@ function App() {
         window.removeEventListener('resize', handleResize)}
 })
 
+function toggleSwipeDrawer(){
+  setMobileDrawer(!mobileDrawer)
+}
+
+
   return (
 
     <div className="App">
-      <div className="menu-wrap">
-        <div className="title">
-          <p>Recipe List</p>
+        <div className="menu-wrap">
+          <div className="title">
+            <p>Recipe List</p>
+          </div>
+          <div className="ingredients-list">
+            {ingredientsList.map((val)=>(
+              <li>
+                <span>{val.ingredient}</span>
+                <iconButton onClick={()=>handleRemoveIngredient(val.id)}><ClearIcon/></iconButton>
+              </li>
+            ))}
+          </div>
+          <div className="add-ingredients-wrap">
+            <TextField size="small" style={searchBoxStyle} variant="outlined" inputProps={{style:{fontSize:15}}} onChange={ingredientInput} onKeyPress={handleKeyPress} value={ingredientsAdd}></TextField>
+            <IconButton size="small" style={addButtonStyle} onClick={handleAddIngredients}><AddIcon/></IconButton>
+          </div>
+          <div className="search-wrap">
+            <Button onClick={handleSearch} style={searchButtonStyle} startIcon={<SearchIcon/>}>Search</Button>
+          </div>
         </div>
-        <div className="ingredients-list">
-    
-          {ingredientsList.map((val)=>(
-            <li>
-              <span>{val.ingredient}</span>
-              <iconButton onClick={()=>handleRemoveIngredient(val.id)}><ClearIcon/></iconButton>
-            </li>
-          ))}
-
-        </div>
-        <div className="add-ingredients-wrap">
-          
-          <TextField size="small" style={searchBoxStyle} variant="outlined" inputProps={{style:{fontSize:15}}} onChange={ingredientInput} onKeyPress={handleKeyPress} value={ingredientsAdd}></TextField>
-          <IconButton size="small" style={addButtonStyle} onClick={handleAddIngredients}><AddIcon/></IconButton>
-      
-        </div>
-        <div className="search-wrap">
-          <Button onClick={handleSearch} style={searchButtonStyle} startIcon={<SearchIcon/>}>Search</Button>
-        </div>
-        
-      </div>
       
       <div className="recipes-list-wrap">
 
-      {dimensions.width <= 450? 
+      {dimensions.width <= 450 || dimensions.height <=740? 
       <div className="menu-mobile">
         <div className="menu-mobile-button">
-          dd
+          <Button onClick={toggleSwipeDrawer}>button</Button>
         </div>
         <div className="menu-mobile-title">
           Recipe List
         </div>
+        <SwipeableDrawer anchor='bottom' open={mobileDrawer} onClose={toggleSwipeDrawer}>
+        <div className="ingredients-list">
+            {ingredientsList.map((val)=>(
+              <li>
+                <span>{val.ingredient}</span>
+                <iconButton onClick={()=>handleRemoveIngredient(val.id)}><ClearIcon/></iconButton>
+              </li>
+            ))}
+          </div>
+          <div className="add-ingredients-wrap">
+            <TextField size="small" style={searchBoxStyle} variant="outlined" inputProps={{style:{fontSize:15}}} onChange={ingredientInput} onKeyPress={handleKeyPress} value={ingredientsAdd}></TextField>
+            <IconButton size="small" style={addButtonStyle} onClick={handleAddIngredients}><AddIcon/></IconButton>
+          </div>
+          <div className="search-wrap">
+            <Button onClick={handleSearch} style={searchButtonStyle} startIcon={<SearchIcon/>}>Search</Button>
+          </div>
+        </SwipeableDrawer>
       </div>: false}
+      
+
 
         {recipeList && recipeList.map((recipeList)=>(
          <div className="recipe-item">
