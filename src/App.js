@@ -9,6 +9,7 @@ import AddIcon from '@material-ui/icons/Add';
 import ClearIcon from '@material-ui/icons/Clear';
 import SearchIcon from '@material-ui/icons/Search';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
+import MenuIcon from '@material-ui/icons/Menu';
 
 function App() {
 
@@ -134,7 +135,7 @@ function toggleSwipeDrawer(){
       {dimensions.width <= 450 || dimensions.height <=740? 
       <div className="menu-mobile">
         <div className="menu-mobile-button">
-          <Button onClick={toggleSwipeDrawer}>button</Button>
+          <Button onClick={toggleSwipeDrawer}><MenuIcon/></Button>
         </div>
         <div className="menu-mobile-title">
           Recipe List
