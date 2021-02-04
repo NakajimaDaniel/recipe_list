@@ -10,6 +10,9 @@ import ClearIcon from '@material-ui/icons/Clear';
 import SearchIcon from '@material-ui/icons/Search';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import MenuIcon from '@material-ui/icons/Menu';
+import { BorderAll } from '@material-ui/icons';
+
+import Banner from '../src/images/Component 3.png';
 
 function App() {
 
@@ -38,19 +41,27 @@ function App() {
 
   const searchBoxStyle = {
     width:'70%',
-    marginLeft:'5%'
+    marginLeft:'5%',
+    backgroundColor:'white',
+    color:'white',
+    borderRadius: '6px'
   } 
 
   const addButtonStyle={
-    backgroundColor: '#2910d0',
-    color:'white'
+    backgroundColor: '#699BF7',
+    color:'#170E52'
   }
 
   const searchButtonStyle = {
-    backgroundColor:'#2910d0',
-    color:'white',
+    backgroundColor:'#699BF7',
+    color:'#170E52',
     fontSize:13,
     textTransform: 'none'
+  }
+
+  const mobileMenuButton = {
+    color:'white',
+    
   }
 
   const handleSearch = ()=>{
@@ -111,7 +122,7 @@ function toggleSwipeDrawer(){
     <div className="App">
         <div className="menu-wrap">
           <div className="title">
-            <p>Recipe List</p>
+            <img src={Banner}></img>
           </div>
           <div className="ingredients-list">
             {ingredientsList.map((val)=>(
@@ -131,14 +142,16 @@ function toggleSwipeDrawer(){
         </div>
       
       <div className="recipes-list-wrap">
+      
+      
 
       {dimensions.width <= 450 || dimensions.height <=740? 
       <div className="menu-mobile">
         <div className="menu-mobile-button">
-          <Button onClick={toggleSwipeDrawer}><MenuIcon/></Button>
+          <Button style={mobileMenuButton} onClick={toggleSwipeDrawer}><MenuIcon style={{fontSize:'35px'}}/></Button>
         </div>
         <div className="menu-mobile-title">
-          Recipe List
+          <img src={Banner}></img>
         </div>
         <SwipeableDrawer anchor='bottom' open={mobileDrawer} onClose={toggleSwipeDrawer}>
         <div className="ingredients-list">
@@ -159,9 +172,10 @@ function toggleSwipeDrawer(){
         </SwipeableDrawer>
       </div>: false}
       
-
+        {recipeList? <div className="search-result-title">Search Results: </div>: false}
 
         {recipeList && recipeList.map((recipeList)=>(
+          
          <div className="recipe-item">
            <div className="recipe-item-title">
             {recipeList.title}
@@ -194,7 +208,6 @@ function toggleSwipeDrawer(){
           <div className="recipe-likes">
             <p>Likes: {recipeList.likes}</p>       
           </div>
-          <div className="recipe-divider"><hr></hr></div>
           </div>
           
         ))}

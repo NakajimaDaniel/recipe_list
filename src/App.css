@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 
 *{
   margin: 0;
   top: 0;
   box-sizing: border-box;
-  font-family: 'noto sans jp';
+  font-family: 'Inter', sans-serif;
   
 }
 
@@ -15,7 +15,7 @@
 
 .menu-wrap{
   width: 25vh;
-  background-color: #f5f5f7;
+  background-color: #5551FF;
   flex-shrink: 0;
   overflow: auto;
   height: 100vh;
@@ -30,27 +30,32 @@
   color: #303030;
 }
 
+.title img{
+  padding-left: 30px;
+}
+
 .ingredients-list{
   margin-bottom: 5%;
 }
 
 .ingredients-list li{
-  padding-bottom: 2%;
+  padding-bottom: 1%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   background-color: #E8E8E8;
-  padding-top: 4%;
+  padding-top: 1%;
   border-radius: 20px;
-  margin-top: 4%;
-  margin-left: 4%;
-  margin-right: 4%;
-  height: 5%;
+  margin-top: 15px;
+  margin-left: 12px;
+  margin-right: 12px;
+  height: 1%;
+  align-items: center;
 }
 
 .ingredients-list span{
   font-weight: 400;
-  padding-left: 5%;
+  padding-left: 15px;
   color: #303030;
   word-break:break-all;
 }
@@ -61,7 +66,6 @@
 
 .ingredients-list iconbutton{
   cursor: pointer;
-  padding-top: 1%;
 }
 
 .ingredients-list iconbutton:hover{
@@ -71,6 +75,7 @@
 .ingredients-list iconbutton{
   align-self: flex-end;
   margin-right: 10px;
+  margin-top: 5px;
 }
 
 .add-ingredients-wrap{
@@ -85,7 +90,7 @@
   width: 100%;
   height: 100vh;
   overflow: auto;
-  background-color: #E7E7E7
+  background-color: #F4F4F4
 }
 
 .add-ingredients-wrap{
@@ -99,7 +104,11 @@
 }
 
 .search-wrap button{
-  margin: 10px;
+  margin-left: 7%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  border-radius: 10px;
+  width: 100px;
 }
 
 .recipe-item{
@@ -159,15 +168,8 @@
   padding-left: 30px;
 }
 
-.recipe-divider{
-  width: 80%;
-  margin: 0 auto;
-  padding-top: 1%;
-}
 
-.recipe-divider hr{
-  background-color: #2910d0;
-}
+
 
 
 @media screen and (max-width:600px){
@@ -228,8 +230,8 @@
 }
 
 .menu-mobile{
-  height: 5%;
-  background-color: #f5f5f7;
+  height: 10%;
+  background-color: #5551FF;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -238,11 +240,17 @@
 .menu-mobile-title{
   color: #303030;
   text-align: center;
-  padding-left: 15%;
+  width: 100%;
 }
 
 .menu-mobile-button{
 
+}
+
+.search-result-title{
+  padding-left: 10px;
+  padding-top: 20px;
+  padding-bottom: 10px;
 }
 
 @media screen and (max-width:450px){
