@@ -23,6 +23,6 @@ Content
 <h4 align="center"> 
 	🚧 Em construção...  🚧
 </h4>
-<p align="center">
-  <a href="#About">About</a>
-</p>
+
+<h1 href="#About">About</h1>
+
