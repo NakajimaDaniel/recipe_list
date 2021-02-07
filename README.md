@@ -8,7 +8,8 @@
   <img src="https://img.shields.io/github/issues/NakajimaDaniel/recipe_list"></img>  
   <img src="https://img.shields.io/github/last-commit/NakajimaDaniel/recipe_list/master"></img>  
   <img src="https://img.shields.io/github/languages/top/NakajimaDaniel/recipe_list"></img>  
-  <img src="https://img.shields.io/static/v1?label=React&message=>=17.0.1&color=blue&style=flat&logo=react"></img>  
+  <img src="https://img.shields.io/static/v1?label=React&message=>=17.0.1&color=blue&style=flat&logo=react"></img> 
+  <img src="https://img.shields.io/github/license/NakajimaDaniel/recipe_list"></img>  
 </p>
 
 Content
@@ -23,5 +24,5 @@ Content
 	🚧 Em construção...  🚧
 </h4>
 <p align="center">
-  
+  <a href="#About">About</a>
 </p>
